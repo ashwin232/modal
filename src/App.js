@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Form from "./Form";
 
 function App() {
+  const [showForm, setShowForm] = useState(false);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{minHeight:"100vh"}}>
+      <h1>User Details Modal</h1>
+      <button onClick={()=>setShowForm(true)}>Open Form</button>
+      {showForm && <Form setShowForm={setShowForm}/>}
     </div>
   );
 }
